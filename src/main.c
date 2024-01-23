@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <SDL2/SDL.h>
-
 #include "../include/panel.h"
 
 int main() {
 
+	printf("Tu puntuacion es: 1\n");
 	initPanel();
 
 	int quit = 0;
@@ -15,13 +15,15 @@ int main() {
 			while (SDL_PollEvent(&e) != 0) {
 					if (e.type == SDL_QUIT) {
 							quit = 1;
+							printf("Tu puntuacion fue: %d", puntaje());
 					}
 					handleInput();
 			}
 
 			update();
 			drawRect();
-			SDL_Delay(200); // Ajusta la velocidad del juego
+			/* Ajusta la velocidad del juego. */
+			SDL_Delay(200); 
 	}
 
 	closePanel();
