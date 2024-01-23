@@ -5,26 +5,42 @@
 
 int main() {
 
-	printf("Tu puntuacion es: 1\n");
 	initPanel();
 
 	int quit = 0;
-	SDL_Event e;
+	SDL_Event event;
+
+	int teclaPresionada = 0;
+
+	while (!teclaPresionada) {
+		while (SDL_PollEvent(&event) != 0) {
+			if (event.type == SDL_QUIT) {
+				teclaPresionada = 1; 
+			} else if (event.type == SDL_KEYDOWN) {
+				teclaPresionada = 1; 
+			}
+		}
+	}
+
+	drawRect();
+	update();
+	SDL_Delay(250);
 
 	while (!quit) {
-			while (SDL_PollEvent(&e) != 0) {
-					if (e.type == SDL_QUIT) {
-							quit = 1;
-							printf("Tu puntuacion fue: %d", puntaje());
-					}
-					handleInput();
+		while (SDL_PollEvent(&event) != 0) {
+			if (event.type == SDL_QUIT) {
+				quit = 1;
+				printf("Tu puntuacion fue: %d\n", puntaje());
 			}
+			handleInput();
+		}
 
-			update();
-			drawRect();
-			/* Ajusta la velocidad del juego. */
-			SDL_Delay(200); 
+		drawRect();
+		update();
+		/* Ajusta la velocidad del juego. */
+		SDL_Delay(250); 
 	}
+
 
 	closePanel();
 
