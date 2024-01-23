@@ -13,7 +13,7 @@ OBJS = $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRCS))
 
 # Compilador y opciones de compilación
 CC = gcc
-CFLAGS = -Wall -Wextra -O2 -std=c11
+CFLAGS = -O2
 
 # Bibliotecas a enlazar
 LDFLAGS = -lSDL2
