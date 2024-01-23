@@ -157,7 +157,6 @@ void update() {
 	/* Verifica si la cabeza de la serpiente alcanza la comida */
 	if (snake[0].position.x == food.x && snake[0].position.y == food.y) {
 		snakeLength++;
-		printf("Tu puntuacion es: %d\n", snakeLength);
 		spawnFood();
 	}
 }

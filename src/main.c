@@ -43,7 +43,6 @@ int main() {
 		while (SDL_PollEvent(&event) != 0) {
 			if (event.type == SDL_QUIT) {
 				quit = 1;
-				printf("Tu puntuacion fue: %d\n", puntaje());
 			}
 			handleInput();
 		}
