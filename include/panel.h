@@ -1,6 +1,5 @@
 #ifndef PANEL_H
 #define PANEL_H
-#include <SDL2/SDL.h>
 
 int initPanel();
 void drawRect();
